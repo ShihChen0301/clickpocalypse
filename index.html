@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爐邊放置冒險團</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="left-column" class="panel">
+            <h2>隊伍</h2>
+            <div id="party-container"></div>
+            <hr>
+            <h2>強化</h2>
+            <div id="upgrades-container">
+                <button id="upgrade-damage-btn">提升隊伍輸出</button>
+                <div>花費：<span id="upgrade-damage-cost">10</span> 金幣</div>
+                <div>等級：<span id="upgrade-damage-level">0</span></div>
+            </div>
+            <hr>
+            <h2>招募</h2>
+            <div id="recruitment-container"></div>
+            <hr>
+            <h2>進階發展</h2>
+            <div id="progress-container">
+                <div>巔峰等級：<span id="paragon-level">0</span></div>
+                <div>巔峰經驗：<span id="paragon-xp">0</span> / <span id="paragon-next">0</span></div>
+                <div>轉生次數：<span id="rebirth-count">0</span></div>
+                <button id="rebirth-btn">轉生突破</button>
+                <div id="rebirth-hint" class="hint-text"></div>
+            </div>
+        </div>
+        <div id="middle-column" class="panel">
+            <h2>戰鬥</h2>
+            <div id="monster-area">
+                <img id="monster-image" src="" alt="Monster">
+                <div id="monster-name">史萊姆</div>
+                <div class="hp-bar-container">
+                    <div id="monster-hp-bar"></div>
+                </div>
+                <div>生命值：<span id="monster-hp-text">10 / 10</span></div>
+            </div>
+            <div id="resource-display">
+                金幣：<span id="gold-display">0</span>
+            </div>
+            <hr>
+            <h2>冒險地圖</h2>
+            <div id="map-selector"></div>
+            <div id="map-description" class="hint-text"></div>
+        </div>
+        <div id="right-column" class="panel">
+            <h2>
+                背包
+                <button id="equip-best-btn" class="header-btn">一鍵最佳化</button>
+                <button id="cancel-equip-btn" class="header-btn" style="display:none;">取消配裝</button>
+            </h2>
+            <div id="inventory-container"></div>
+            <hr>
+            <h2>戰鬥紀錄</h2>
+            <div id="log-container"></div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

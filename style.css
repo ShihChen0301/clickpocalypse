@@ -1,0 +1,373 @@
+
+body {
+    font-family: sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+}
+
+#game-container {
+    display: flex;
+    gap: 20px;
+}
+
+.panel {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+#left-column {
+    width: 200px;
+}
+
+#middle-column {
+    flex-grow: 1;
+    width: 350px;
+}
+
+#right-column {
+    width: 250px;
+}
+
+h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-btn {
+    font-size: 0.7em;
+    padding: 4px 8px;
+    width: auto;
+    margin: 0;
+}
+
+#cancel-equip-btn {
+    background-color: #c62828;
+}
+
+#cancel-equip-btn:hover {
+    background-color: #e53935;
+}
+
+#party-container {
+    max-height: 400px; /* Or any height you prefer */
+    overflow-y: auto;
+    padding-right: 10px; /* For scrollbar spacing */
+}
+
+.adventurer-card.targetable {
+    cursor: pointer;
+    border: 1px solid #1eff00;
+    box-shadow: 0 0 5px #1eff00;
+}
+
+.adventurer-card, #upgrades-container, #monster-area {
+    margin-bottom: 15px;
+}
+
+.adventurer-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.class-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+.adventurer-info, .adventurer-stats {
+    font-size: 0.9em;
+}
+
+button {
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    background-color: #7f39fb;
+}
+
+.hp-bar-container {
+    width: 100%;
+    background-color: #444;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+    margin: 10px 0;
+}
+
+#monster-image {
+    height: 128px; /* Adjust size as needed */
+    display: block;
+    margin: 10px auto;
+    object-fit: contain; /* Prevents distortion */
+}
+
+#monster-hp-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #d32f2f;
+    transition: width 0.1s linear;
+}
+
+#resource-display {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+#log-container {
+    height: 300px;
+    overflow-y: auto;
+    font-size: 0.9em;
+    background-color: #111;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#log-container div {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 5px;
+}
+
+.skills-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.skill-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.upgrade-skill-btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 24px;
+    flex-shrink: 0;
+}
+
+.equipment-section, .skills-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.skill-points {
+    font-size: 0.85em;
+    color: #d7d7d7;
+    margin-bottom: 6px;
+}
+
+.skill-tier {
+    border-top: 1px solid #2f2f2f;
+    padding-top: 6px;
+    margin-top: 6px;
+}
+
+.skill-tier.first-tier {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.skill-tier summary {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    color: #64b5f6;
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: 4px;
+}
+
+.skill-tier summary::-webkit-details-marker {
+    display: none;
+}
+
+.skill-tier-title {
+    font-weight: 600;
+}
+
+.skill-tier summary::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+}
+
+.skill-tier:not([open]) summary::after {
+    transform: rotate(-90deg);
+}
+
+.skill-info {
+    flex: 1;
+    padding-right: 8px;
+}
+
+.skill-name {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.skill-level {
+    font-size: 0.75em;
+    color: #b0bec5;
+}
+
+.skill-description {
+    font-size: 0.75em;
+    color: #a5a5a5;
+    margin-top: 2px;
+    line-height: 1.3em;
+}
+
+.skill-action {
+    min-width: 120px;
+    text-align: right;
+}
+
+.skill-status {
+    font-size: 0.75em;
+    color: #ffa726;
+}
+
+#inventory-container {
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: #111;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.inventory-item {
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.inventory-item.selected {
+    border-color: #6200ee;
+    box-shadow: 0 0 5px #6200ee;
+}
+
+.item-affixes {
+    font-size: 0.8em;
+    color: #aaa;
+    margin: 5px 0;
+}
+
+.equip-btn, .unequip-btn {
+    width: auto;
+    padding: 2px 8px;
+    font-size: 0.8em;
+    float: right;
+}
+
+.unequip-btn {
+    background-color: #555;
+}
+.unequip-btn:hover {
+    background-color: #777;
+}
+
+.sell-btn {
+    background-color: #c62828; /* Red */
+    float: right;
+    width: auto;
+    padding: 2px 8px;
+    font-size: 0.8em;
+    margin-left: 4px; /* Add some space next to the equip button */
+}
+.sell-btn:hover {
+    background-color: #e53935;
+}
+
+.upgrade-arrow {
+    color: #1eff00; /* Bright Green */
+    margin-left: 5px;
+}
+
+#progress-container {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+#progress-container button {
+    margin-top: 10px;
+}
+
+.hint-text {
+    font-size: 0.8em;
+    color: #bdbdbd;
+    margin-top: 6px;
+    line-height: 1.4em;
+}
+
+#map-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.map-button {
+    background-color: #37474f;
+    border: 1px solid #455a64;
+    border-radius: 4px;
+    padding: 8px;
+    text-align: left;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.map-button.active {
+    border-color: #64b5f6;
+    box-shadow: 0 0 6px #64b5f6;
+}
+
+.map-button.locked {
+    background-color: #2c2c2c;
+    border: 1px dashed #555;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.map-button.locked:hover {
+    background-color: #2c2c2c;
+}
+
+#map-description {
+    margin-top: 8px;
+}
